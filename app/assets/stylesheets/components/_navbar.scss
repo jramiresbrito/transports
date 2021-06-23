@@ -1,0 +1,12 @@
+.navbar-custom {
+  justify-content: space-between;
+  background: $light-gray;
+}
+
+.navbar-custom .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-custom .navbar-brand img {
+  width: 40px;
+}

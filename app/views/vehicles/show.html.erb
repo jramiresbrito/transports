@@ -1,0 +1,60 @@
+<% if notice %>
+  <div id="notice" class="flash flash-success alert alert-dismissible fade show" role="alert">
+    <span><%= notice %></span>
+    <a data-dismiss="alert" aria-label="Close">
+      <%= icon('fas', 'times') %>
+    </a>
+  </div>
+<% end %>
+
+<h1 class="m-3">Detalhes do Veículo</h1>
+<div class="mb-3">
+  <%= link_to 'Editar', edit_vehicle_path(@vehicle) %> |
+  <%= link_to 'Voltar', vehicles_path %>
+</div>
+
+<p>
+  <strong>Placa:</strong>
+  <%= @vehicle.plate %>
+</p>
+
+<p>
+  <strong>Tanque de Combustível:</strong>
+  <%= FuelTank.find(@vehicle.fuel_tank_id).info %>
+</p>
+
+<p>
+  <strong>Autonomia Atual:</strong>
+  <%= @vehicle.current_autonomy %> (Km's)
+</p>
+
+<p>
+  <strong>Custos com combustível:</strong>
+  <%= price_mask_real(@vehicle.fuel_cost) %>
+</p>
+
+<p>
+  <strong>Custos com manutenções:</strong>
+  <%= price_mask_real(@vehicle.maintenances_cost) %>
+</p>
+
+<p>
+  <strong>Distância Percorrida:</strong>
+  <%= @vehicle.distance_traveled.to_f %> (Km's)
+</p>
+
+<p>
+  <strong>Manutenções:</strong>
+  <% @vehicle.maintenances.each do |maintenance| %>
+    <p><%= link_to maintenance.info, maintenance %></p>
+  <% end %>
+</p>
+
+<p>
+  <strong>Rotas:</strong>
+  <% @vehicle.routes.each do |route| %>
+    <p><%= link_to route.info, route %></p>
+  <% end %>
+</p>
+
+

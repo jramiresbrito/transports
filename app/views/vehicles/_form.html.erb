@@ -1,0 +1,28 @@
+<%= simple_form_for(@vehicle) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-lg-6">
+        <%= f.input :plate, label: 'Placa', required: true, autofocus: true %>
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :tipo, label: 'Tipo', collection: Vehicle.tipos.keys %>
+      </div>
+      <div class="col-lg-7">
+        <%= f.association :fuel_tank, label: "Tanque de Combustível", label_method: :info, value_method: :id, required: true %>
+      </div>
+      <div class="col-lg-2">
+        <%= f.input :fuel_cost, label: 'Custo Atual', required: true %>
+      </div>
+      <div class="col-lg-3">
+        <%= f.input :distance_traveled, label: "Distância Percorrida (Km's)", required: true %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, locals[:button_label], { class: 'btn btn-primary' } %>
+  </div>
+<% end %>

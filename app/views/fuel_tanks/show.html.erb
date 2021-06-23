@@ -1,0 +1,29 @@
+<% if notice %>
+  <div id="notice" class="flash flash-success alert alert-dismissible fade show" role="alert">
+    <span><%= notice %></span>
+    <a data-dismiss="alert" aria-label="Close">
+      <%= icon('fas', 'times') %>
+    </a>
+  </div>
+<% end %>
+
+<h1 class="m-3">Detalhes do Tanque de Combustível</h1>
+<div class="mb-3">
+  <%= link_to 'Editar', edit_fuel_tank_path(@fuel_tank) %> |
+  <%= link_to 'Voltar', fuel_tanks_path %>
+</div>
+
+<p>
+  <strong>Capacidade:</strong>
+  <%= @fuel_tank.capacity %>
+</p>
+
+<p>
+  <strong>Quantidade:</strong>
+  <%= @fuel_tank.amount %>
+</p>
+
+<p>
+  <strong>Combustível:</strong>
+  <%= @fuel_tank.fuel %>
+</p>

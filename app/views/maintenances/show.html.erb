@@ -1,0 +1,39 @@
+<% if notice %>
+  <div id="notice" class="flash flash-success alert alert-dismissible fade show" role="alert">
+    <span><%= notice %></span>
+    <a data-dismiss="alert" aria-label="Close">
+      <%= icon('fas', 'times') %>
+    </a>
+  </div>
+<% end %>
+
+<h1 class="m-3">Detalhes da Manutenção</h1>
+<div class="mb-3">
+  <%= link_to 'Editar', edit_maintenance_path(@maintenance) %> |
+  <%= link_to 'Voltar', maintenances_path %>
+</div>
+
+<p>
+  <strong>Data:</strong>
+  <%= format_date(@maintenance.date) %>
+</p>
+
+<p>
+  <strong>Veículo:</strong>
+  <%= link_to @maintenance.vehicle.info, @maintenance.vehicle %>
+</p>
+
+<p>
+  <strong>Distância Percorrida (Km's):</strong>
+  <%= @maintenance.distance_traveled %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @maintenance.tipo %>
+</p>
+
+<p>
+  <strong>Preço:</strong>
+  <%= price_mask_real(@maintenance.price) %>
+</p>

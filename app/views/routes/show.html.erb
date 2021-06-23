@@ -1,0 +1,29 @@
+<% if notice %>
+  <div id="notice" class="flash flash-success alert alert-dismissible fade show" role="alert">
+    <span><%= notice %></span>
+    <a data-dismiss="alert" aria-label="Close">
+      <%= icon('fas', 'times') %>
+    </a>
+  </div>
+<% end %>
+
+<h1 class="m-3">Detalhes da Rota</h1>
+<div class="mb-3">
+  <%= link_to 'Editar', edit_route_path(@route) %> |
+  <%= link_to 'Voltar', routes_path %>
+</div>
+
+<p>
+  <strong>Data:</strong>
+  <%= format_date(@route.date) %>
+</p>
+
+<p>
+  <strong>Tamanho:</strong>
+  <%= @route.size.to_f %> (Km's)
+</p>
+
+<p>
+  <strong>Veículo:</strong>
+  <%= link_to @route.vehicle.info, @route.vehicle %>
+</p>

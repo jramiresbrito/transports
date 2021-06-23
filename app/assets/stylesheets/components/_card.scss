@@ -1,0 +1,48 @@
+.card-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 240px;
+  width: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: .5s;
+  &:hover {
+    height: 280px;
+    width: 280px;
+  }
+}
+
+.card-link {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.bg-frota {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), asset-url("frota.jpg");
+}
+
+.bg-rotas {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), asset-url("rotas.jpg");
+}
+
+.bg-tanques {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), asset-url("tanques.jpg");
+}
+
+.bg-manutencoes {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), asset-url("manutencoes.jpg");
+}

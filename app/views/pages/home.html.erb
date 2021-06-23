@@ -1,0 +1,35 @@
+<h1 style="margin: 5vh">Sistema de Controle de Frotas</h1>
+
+<div class="card-grid" style="margin-top: 10vh">
+  <div>
+    <%= link_to vehicles_path, :class => "card-link" do %>
+      <div class="card-category bg-frota">
+        Veículos
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= link_to routes_path, :class => "card-link" do %>
+      <div class="card-category bg-rotas">
+        Rotas
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= link_to maintenances_path, :class => "card-link" do %>
+      <div class="card-category bg-manutencoes">
+        Manutenções
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= link_to fuel_tanks_path, :class => "card-link" do %>
+      <div class="card-category bg-tanques">
+        Tanques de Combustível
+      </div>
+    <% end %>
+  </div>
+</div>

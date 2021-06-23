@@ -1,0 +1,45 @@
+<% if notice %>
+  <div id="notice" class="flash flash-success alert alert-dismissible fade show" role="alert">
+    <span><%= notice %></span>
+    <a data-dismiss="alert" aria-label="Close">
+      <%= icon('fas', 'times') %>
+    </a>
+  </div>
+<% end %>
+
+<h1 class="m-3">Rotas</h1>
+<%= link_to 'Nova Rota', new_route_path, :class => "btn btn-primary mb-3" %>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Data</th>
+      <th>Tamanho (Km's)</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @routes.each do |route| %>
+      <tr>
+        <td><%= format_date(route.date) %></td>
+        <td><%= route.size %></td>
+        <td>
+          <%= link_to route, :class => "btn btn-success" do %>
+            <span>Detalhes <%= icon('fas', 'route') %></span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_route_path(route), :class => "btn btn-info" do %>
+            <span>Editar <%= icon('fas', 'edit') %></span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to route, :class => "btn btn-danger", method: :delete, data: { confirm: 'Tem certeza?' } do %>
+            <span>Excluir <%= icon('fas', 'trash-alt') %></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
